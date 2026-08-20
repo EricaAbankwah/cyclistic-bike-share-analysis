@@ -1,0 +1,15 @@
+{
+  "removed_null_member_casual": 0,
+  "removed_invalid_dates": 0,
+  "removed_negative_duration": 29,
+  "removed_zero_duration": 97172,
+  "removed_out_of_bounds_start": 106020,
+  "removed_out_of_bounds_end": 107548,
+  "removed_duplicate_ride_ids": 228,
+  "total_removed": 222248,
+  "duplicate_ride_id_count": 0,
+  "invalid_date_ranges": 0,
+  "out_of_bounds_start": 0,
+  "out_of_bounds_end": 0,
+  "data_completeness_score": 100.0
+}

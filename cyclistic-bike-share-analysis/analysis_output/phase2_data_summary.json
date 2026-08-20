@@ -1,0 +1,72 @@
+{
+  "file_count": 12,
+  "files": [
+    "April2026.csv",
+    "August2025.csv",
+    "December2025.csv",
+    "February2026.csv",
+    "January2026.csv",
+    "July2025.csv",
+    "June2025.csv",
+    "March2026.csv",
+    "May2025.csv",
+    "November2025.csv",
+    "October2025.csv",
+    "September2025.csv"
+  ],
+  "row_count": 5697455,
+  "columns": [
+    "ride_id",
+    "rideable_type",
+    "started_at",
+    "ended_at",
+    "start_station_name",
+    "start_station_id",
+    "end_station_name",
+    "end_station_id",
+    "start_lat",
+    "start_lng",
+    "end_lat",
+    "end_lng",
+    "member_casual",
+    "ride_length_minutes",
+    "day_of_week",
+    "hour_of_day",
+    "month",
+    "season",
+    "is_weekend"
+  ],
+  "member_casual_distribution": {
+    "member": 3659658,
+    "casual": 2037797
+  },
+  "rideable_type_distribution": {
+    "electric_bike": 3761130,
+    "classic_bike": 1936325
+  },
+  "date_range": {
+    "min": "2025-04-30 02:18:00",
+    "max": "2026-04-30 23:58:00"
+  },
+  "missing_values": {
+    "ride_id": 0,
+    "rideable_type": 0,
+    "started_at": 0,
+    "ended_at": 0,
+    "start_station_name": 1215745,
+    "start_station_id": 1215745,
+    "end_station_name": 1279863,
+    "end_station_id": 1279863,
+    "start_lat": 0,
+    "start_lng": 0,
+    "end_lat": 5857,
+    "end_lng": 5857,
+    "member_casual": 0,
+    "ride_length_minutes": 0,
+    "day_of_week": 0,
+    "hour_of_day": 0,
+    "month": 0,
+    "season": 0,
+    "is_weekend": 0
+  }
+}
