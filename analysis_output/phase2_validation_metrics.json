@@ -1,0 +1,29 @@
+{
+  "missing_core_columns": {
+    "ride_id": 0,
+    "started_at": 0,
+    "ended_at": 0,
+    "member_casual": 0
+  },
+  "duplicate_ride_id_count": 239,
+  "member_casual_values": [
+    "casual",
+    "member"
+  ],
+  "negative_ride_length_count": 29,
+  "zero_ride_length_count": 97172,
+  "min_started_at": "2025-04-30 02:18:00",
+  "max_started_at": "2026-04-30 23:58:00",
+  "period_coverage": {
+    "min_month": 1,
+    "max_month": 12,
+    "min_year": 2025,
+    "max_year": 2026
+  },
+  "coordinate_bounds_valid": {
+    "start_lat_valid": 1,
+    "start_lng_valid": 1,
+    "end_lat_valid": 0,
+    "end_lng_valid": 1
+  }
+}

@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cyclistic Bike-Share Analysis - Comprehensive Project Roadmap</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      line-height: 1.6; 
+      color: #2c3e50; 
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 20px;
+    }
+    .container { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      background: white; 
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      padding: 40px;
+    }
+    header { 
+      border-bottom: 4px solid #1a3d7c; 
+      margin-bottom: 40px; 
+      padding-bottom: 20px;
+    }
+    h1 { 
+      font-size: 32px; 
+      color: #1a3d7c; 
+      margin-bottom: 10px;
+    }
+    .subtitle { 
+      font-size: 14px; 
+      color: #7f8c8d; 
+      font-style: italic;
+    }
+    h2 { 
+      font-size: 24px; 
+      color: #1a3d7c; 
+      margin-top: 30px; 
+      margin-bottom: 15px;
+      border-left: 4px solid #3498db;
+      padding-left: 15px;
+    }
+    h3 { 
+      font-size: 18px; 
+      color: #34495e; 
+      margin-top: 20px; 
+      margin-bottom: 10px;
+    }
+    h4 { 
+      font-size: 16px; 
+      color: #2c3e50; 
+      margin-top: 15px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    p { 
+      margin-bottom: 10px; 
+      text-align: justify;
+    }
+    ul, ol { 
+      margin-left: 25px; 
+      margin-bottom: 15px;
+    }
+    li { 
+      margin-bottom: 6px;
+      line-height: 1.8;
+    }
+    .phase {
+      background: #ecf0f1;
+      border-left: 6px solid #3498db;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .phase.active {
+      background: #e8f4f8;
+      border-left-color: #27ae60;
+    }
+    .callout {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+    .callout.critical {
+      background: #f8d7da;
+      border-left-color: #dc3545;
+    }
+    .callout.success {
+      background: #d4edda;
+      border-left-color: #28a745;
+    }
+    .code {
+      font-family: 'Courier New', monospace;
+      background: #f8f9fa;
+      padding: 4px 8px;
+      border-radius: 3px;
+      color: #d63384;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: white;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background: #34495e;
+      color: white;
+      font-weight: 600;
+    }
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    .milestone {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+      padding: 15px;
+      background: #f0f8ff;
+      border-radius: 4px;
+      border-left: 4px solid #2196F3;
+    }
+    .milestone-number {
+      background: #2196F3;
+      color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-right: 15px;
+      flex-shrink: 0;
+    }
+    .metric-box {
+      background: #ecf0f1;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 4px;
+      border-left: 4px solid #3498db;
+    }
+    .standard {
+      background: #fffbea;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 4px;
+      border-left: 4px solid #f39c12;
+    }
+    .checklist {
+      background: #f5f5f5;
+      padding: 20px;
+      margin: 15px 0;
+      border-radius: 4px;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .checklist-item input[type="checkbox"] {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .risk-matrix {
+      margin: 20px 0;
+    }
+    .risk-high {
+      background: #f8d7da;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 4px;
+    }
+    .risk-medium {
+      background: #fff3cd;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 4px;
+    }
+    .risk-low {
+      background: #d4edda;
+      padding: 12px;
+      margin: 8px 0;
+      border-radius: 4px;
+    }
+    footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ecf0f1;
+      font-size: 12px;
+      color: #7f8c8d;
+      text-align: center;
+    }
+    .diagram {
+      background: #f9f9f9;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+      border: 2px dashed #bdc3c7;
+      text-align: center;
+      font-family: monospace;
+      line-height: 1.8;
+    }
+    .tool-badge {
+      display: inline-block;
+      background: #3498db;
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 12px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Cyclistic Bike-Share Analysis</h1>
+      <p class="subtitle">Comprehensive Data Analytics Project Roadmap | Enterprise-Grade Implementation</p>
+      <p style="margin-top: 10px; color: #2c3e50;">
+        <strong>Project Goal:</strong> Convert casual riders into annual members through data-driven marketing insights
+      </p>
+      <p style="color: #7f8c8d; font-size: 14px;">
+        <strong>Duration:</strong> 8 weeks | <strong>Status:</strong> Research Phase Completed | <strong>Next Phase:</strong> Implementation
+      </p>
+    </header>
+
+    <!-- EXECUTIVE SUMMARY -->
+    <section>
+      <h2>Executive Summary</h2>
+      <p>This roadmap outlines a comprehensive data analysis initiative following the CRISP-DM (Cross-Industry Standard Process for Data Mining) methodology, enhanced with industry best practices from Six Sigma, lean analytics, and modern data governance frameworks. The project leverages 12 months of Cyclistic bike-share operational data (May 2025 – April 2026) to uncover behavioral patterns differentiating annual members from casual riders.</p>
+      <div class="callout success">
+        <strong>✓ Key Deliverables:</strong> Executive presentation, data visualizations, actionable recommendations, reproducible analysis pipeline, and documentation suite.
+      </div>
+    </section>
+
+    <!-- METHODOLOGY FRAMEWORK -->
+    <section>
+      <h2>Industry Standards & Methodology</h2>
+      
+      <h3>1. CRISP-DM Framework (Primary)</h3>
+      <p>The project adheres to the Cross-Industry Standard Process for Data Mining, which provides a proven structure for analytics projects:</p>
+      <ul>
+        <li><strong>Business Understanding:</strong> Align analysis with Cyclistic's strategic objective to maximize annual memberships</li>
+        <li><strong>Data Understanding:</strong> Comprehensive exploration of dataset characteristics, quality, and distribution</li>
+        <li><strong>Data Preparation:</strong> Systematic cleaning, transformation, and feature engineering</li>
+        <li><strong>Modeling & Analysis:</strong> Descriptive and comparative analytics with statistical rigor</li>
+        <li><strong>Evaluation:</strong> Validate findings against business objectives and data quality standards</li>
+        <li><strong>Deployment:</strong> Communication of insights and recommendations to executive stakeholders</li>
+      </ul>
+
+      <h3>2. Data Governance Standards</h3>
+      <ul>
+        <li><strong>Data Privacy:</strong> GDPR/CCPA compliance—analysis contains no personally identifiable information (PII)</li>
+        <li><strong>Data Lineage:</strong> Full documentation of data sources, transformations, and derived metrics</li>
+        <li><strong>Data Quality:</strong> ISO 8601 date standards, validation of geographic coordinates, null-handling protocols</li>
+        <li><strong>Access Control:</strong> Version control via Git, audit trails for all modifications</li>
+      </ul>
+
+      <h3>3. Quality Assurance Framework (Six Sigma Inspired)</h3>
+      <ul>
+        <li><strong>Data Validation Rules:</strong> Range checks, consistency tests, and referential integrity checks</li>
+        <li><strong>Statistical Rigor:</strong> Confidence intervals, hypothesis testing, effect size calculations</li>
+        <li><strong>Reproducibility:</strong> Documented, version-controlled code enabling full audit trails</li>
+        <li><strong>Peer Review:</strong> Documentation for stakeholder validation before final recommendations</li>
+      </ul>
+    </section>
+
+    <!-- PHASE 1: ASK -->
+    <section>
+      <h2>Phase 1: Ask (Business Understanding)</h2>
+      <p><strong>Duration:</strong> Week 1 | <strong>Status:</strong> ✓ Completed</p>
+      
+      <div class="phase active">
+        <h3>Objectives</h3>
+        <ul>
+          <li>Define the precise business problem and success metrics</li>
+          <li>Identify stakeholders and their information needs</li>
+          <li>Establish project scope, constraints, and assumptions</li>
+        </ul>
+
+        <h3>Key Questions Addressed</h3>
+        <ol>
+          <li><strong>How do annual members and casual riders use Cyclistic bikes differently?</strong> (Primary)</li>
+          <li>Why would casual riders buy Cyclistic annual memberships? (Secondary)</li>
+          <li>How can Cyclistic use digital media to influence casual riders to become members? (Secondary)</li>
+        </ol>
+
+        <h3>Stakeholder Analysis</h3>
+        <table>
+          <tr>
+            <th>Stakeholder</th>
+            <th>Role</th>
+            <th>Information Needs</th>
+            <th>Communication Frequency</th>
+          </tr>
+          <tr>
+            <td>Lily Moreno</td>
+            <td>Director of Marketing</td>
+            <td>High-level insights, strategic recommendations, ROI implications</td>
+            <td>Weekly status, bi-weekly deep dives</td>
+          </tr>
+          <tr>
+            <td>Executive Team</td>
+            <td>Decision Makers</td>
+            <td>Executive summary, visualizations, business impact</td>
+            <td>Final presentation (week 8)</td>
+          </tr>
+          <tr>
+            <td>Marketing Analytics Team</td>
+            <td>Project Supporters</td>
+            <td>Technical details, methodology, reproducibility</td>
+            <td>Weekly team meetings</td>
+          </tr>
+          <tr>
+            <td>Finance Team</td>
+            <td>Budget Approval</td>
+            <td>Cost implications, profitability insights</td>
+            <td>As needed</td>
+          </tr>
+        </table>
+
+        <h3>Success Metrics</h3>
+        <div class="metric-box">
+          <strong>Primary Success Criteria:</strong>
+          <ul>
+            <li>Identify ≥3 statistically significant behavioral differences between member types</li>
+            <li>Present findings with 95%+ confidence intervals</li>
+            <li>Deliver ≥3 actionable, data-backed recommendations</li>
+            <li>Executive team approval for at least one recommendation</li>
+          </ul>
+        </div>
+
+        <h3>Deliverable: Business Task Statement</h3>
+        <div class="callout success">
+          <strong>Business Task:</strong> Analyze 12 months of Cyclistic bike-share trip data to identify behavioral differences between annual members and casual riders, enabling targeted marketing strategies to convert casual riders into annual members and maximize company profitability.
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 2: PREPARE -->
+    <section>
+      <h2>Phase 2: Prepare (Data Understanding & Acquisition)</h2>
+      <p><strong>Duration:</strong> Week 1–2 | <strong>Status:</strong> In Progress</p>
+      
+      <div class="phase">
+        <h3>Objectives</h3>
+        <ul>
+          <li>Acquire and inventory all data sources</li>
+          <li>Assess data quality, completeness, and credibility</li>
+          <li>Document data characteristics and limitations</li>
+          <li>Establish data storage and version control protocols</li>
+        </ul>
+
+        <h3>Data Sources</h3>
+        <table>
+          <tr>
+            <th>Source</th>
+            <th>Format</th>
+            <th>Records (Est.)</th>
+            <th>Coverage</th>
+            <th>Credibility</th>
+          </tr>
+          <tr>
+            <td>Cyclistic/Divvy Trip Data</td>
+            <td>CSV (12 files)</td>
+            <td>~5.2M</td>
+            <td>May 2025 – Apr 2026</td>
+            <td>High (Public, Motivate International)</td>
+          </tr>
+        </table>
+
+        <h3>Data Credibility Assessment (ROCCC Framework)</h3>
+        <div class="standard">
+          <strong>Reliable:</strong> ✓ Data comes from Motivate International, the official Divvy operator<br>
+          <strong>Original:</strong> ✓ Primary data from operational bike-share systems<br>
+          <strong>Comprehensive:</strong> ✓ 12 months of data, 13 fields per record<br>
+          <strong>Current:</strong> ✓ Data from 2025–2026 (recent)<br>
+          <strong>Cited:</strong> ✓ Public dataset with documented license
+        </div>
+
+        <h3>Data Schema & Structure</h3>
+        <table>
+          <tr>
+            <th>Column Name</th>
+            <th>Data Type</th>
+            <th>Description</th>
+            <th>Null Handling</th>
+          </tr>
+          <tr>
+            <td>ride_id</td>
+            <td>String (UUID)</td>
+            <td>Unique identifier for each trip</td>
+            <td>No nulls (Primary Key)</td>
+          </tr>
+          <tr>
+            <td>rideable_type</td>
+            <td>Categorical</td>
+            <td>Bike type (classic, electric, docked)</td>
+            <td>Analyze distribution</td>
+          </tr>
+          <tr>
+            <td>started_at / ended_at</td>
+            <td>DateTime</td>
+            <td>Trip start/end timestamps</td>
+            <td>No nulls (Calculate ride_length)</td>
+          </tr>
+          <tr>
+            <td>start_station_name / end_station_name</td>
+            <td>String</td>
+            <td>Station identifiers</td>
+            <td>~15% null (Handle separately)</td>
+          </tr>
+          <tr>
+            <td>Lat/Lng fields</td>
+            <td>Float</td>
+            <td>Geographic coordinates</td>
+            <td>Fill from station lookup or drop</td>
+          </tr>
+          <tr>
+            <td>member_casual</td>
+            <td>Categorical (Binary)</td>
+            <td>Customer type classification</td>
+            <td>No nulls (Core segmentation variable)</td>
+          </tr>
+        </table>
+
+        <h3>Quality Assessment Checklist</h3>
+        <div class="checklist">
+          <div class="checklist-item">
+            <input type="checkbox" id="check1">
+            <label for="check1">Verify dataset completeness: Row counts per month</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="check2">
+            <label for="check2">Check date ranges: Confirm May 2025 – April 2026 coverage</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="check3">
+            <label for="check3">Validate member_casual distribution (expect ~60% casual, 40% member)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="check4">
+            <label for="check4">Identify missing values (station names, GPS coordinates)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="check5">
+            <label for="check5">Check for outliers (trip durations > 24 hours)</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="check6">
+            <label for="check6">Verify bike type distribution</label>
+          </div>
+          <div class="checklist-item">
+            <input type="checkbox" id="check7">
+            <label for="check7">Validate geographic coordinates (Chicago bounds)</label>
+          </div>
+        </div>
+
+        <h3>Data Organization & Storage</h3>
+        <div class="standard">
+          <strong>Folder Structure:</strong><br>
+          <span class="code">/raw_data</span> → Original CSV files (unchanged)<br>
+          <span class="code">/processed_data</span> → Cleaned, combined dataframes<br>
+          <span class="code">/analysis_output</span> → Summary statistics, pivot tables<br>
+          <span class="code">/visualizations</span> → Charts, dashboards<br>
+          <span class="code">/documentation</span> → Data dictionary, cleaning logs
+        </div>
+
+        <h3>Deliverable: Data Sources Documentation</h3>
+        <div class="callout success">
+          <strong>Dataset Summary:</strong> 12 months of Cyclistic bike-share operations data (May 2025 – April 2026), approximately 5.2M trip records with 13 fields per record, sourced from Motivate International's public Divvy dataset, covering trip details, rider type, bike type, and geographic information.
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 3: PROCESS -->
+    <section>
+      <h2>Phase 3: Process (Data Preparation & Cleaning)</h2>
+      <p><strong>Duration:</strong> Week 2–3 | <strong>Status:</strong> Pending</p>
+      
+      <div class="phase">
+        <h3>Objectives</h3>
+        <ul>
+          <li>Combine multi-file datasets into a unified analytical dataset</li>
+          <li>Implement systematic data cleaning and validation</li>
+          <li>Create derived features and calculated fields</li>
+          <li>Document all transformations with audit trails</li>
+        </ul>
+
+        <h3>Data Integration Steps</h3>
+        <h4>Step 1: Load and Concatenate</h4>
+        <div class="standard">
+          <strong>Tool:</strong> <span class="tool-badge">Python</span> <span class="tool-badge">Pandas</span><br>
+          <strong>Process:</strong> Load all 12 CSV files, verify schema consistency, concatenate into single DataFrame<br>
+          <strong>Output:</strong> Combined dataset with ~5.2M rows × 13 columns
+        </div>
+
+        <h4>Step 2: Data Type Standardization</h4>
+        <ul>
+          <li><strong>DateTime Parsing:</strong> Convert started_at, ended_at to ISO 8601 format</li>
+          <li><strong>Categorical Encoding:</strong> Standardize member_casual values ("member", "casual")</li>
+          <li><strong>Numeric Validation:</strong> Verify latitude/longitude are floats within Chicago bounds (41.5°N–42.0°N, -88.3°W–-87.5°W)</li>
+          <li><strong>String Normalization:</strong> Trim whitespace, standardize station names to title case</li>
+        </ul>
+
+        <h4>Step 3: Data Quality Validation</h4>
+        <table>
+          <tr>
+            <th>Validation Rule</th>
+            <th>Action</th>
+            <th>Threshold</th>
+          </tr>
+          <tr>
+            <td>Negative ride duration</td>
+            <td>Remove (data entry error)</td>
+            <td>Remove if ended_at < started_at</td>
+          </tr>
+          <tr>
+            <td>Zero-second rides</td>
+            <td>Remove (system error)</td>
+            <td>Remove if ride_length < 60 seconds</td>
+          </tr>
+          <tr>
+            <td>Extreme ride duration (>24 hours)</td>
+            <td>Flag & analyze</td>
+            <td>Separate analysis; may indicate equipment malfunction</td>
+          </tr>
+          <tr>
+            <td>Missing end station</td>
+            <td>Retain; mark as incomplete trip</td>
+            <td>Tag for exploratory analysis (~15% of records)</td>
+          </tr>
+          <tr>
+            <td>Null member_casual</td>
+            <td>Remove</td>
+            <td>Critical segmentation variable</td>
+          </tr>
+          <tr>
+            <td>Geographic outliers</td>
+            <td>Validate manually</td>
+            <td>Confirm coordinates within Chicago bounds</td>
+          </tr>
+        </table>
+
+        <h4>Step 4: Feature Engineering</h4>
+        <div class="standard">
+          <strong>Calculated Fields to Create:</strong>
+          <ul>
+            <li><span class="code">ride_length_minutes</span> = (ended_at - started_at) / 60</li>
+            <li><span class="code">day_of_week</span> = WEEKDAY(started_at) [1=Sunday, 7=Saturday]</li>
+            <li><span class="code">hour_of_day</span> = HOUR(started_at) [0–23]</li>
+            <li><span class="code">month</span> = MONTH(started_at) [1–12]</li>
+            <li><span class="code">season</span> = Season classification (Spring/Summer/Fall/Winter)</li>
+            <li><span class="code">is_weekend</span> = Boolean (True if day_of_week ∈ {1,7})</li>
+            <li><span class="code">trip_distance_km</span> = Haversine distance formula (lat/lng delta)</li>
+            <li><span class="code">is_round_trip</span> = Boolean (start_station ≈ end_station)</li>
+          </ul>
+        </div>
+
+        <h4>Step 5: Handling Missing Values</h4>
+        <table>
+          <tr>
+            <th>Field</th>
+            <th>Missing %</th>
+            <th>Strategy</th>
+          </tr>
+          <tr>
+            <td>start_station_name</td>
+            <td>~15%</td>
+            <td>Create lookup table from start_station_id; retain as "Unknown" if unresolvable</td>
+          </tr>
+          <tr>
+            <td>end_station_name</td>
+            <td>~15%</td>
+            <td>Same as above</td>
+          </tr>
+          <tr>
+            <td>start_lat / start_lng</td>
+            <td><1%</td>
+            <td>Impute from station master table; drop if unavailable</td>
+          </tr>
+          <tr>
+            <td>end_lat / end_lng</td>
+            <td><1%</td>
+            <td>Same as above</td>
+          </tr>
+        </table>
+
+        <h3>Data Cleaning Workflow Diagram</h3>
+        <div class="diagram">
+Raw Data (12 files)
+      ↓
+[Load & Concatenate]
+      ↓
+[Type Standardization]
+      ↓
+[Validation Rules] → [Flag Anomalies]
+      ↓
+[Feature Engineering]
+      ↓
+[Missing Value Imputation]
+      ↓
+[Quality Report & Audit Trail]
+      ↓
+Cleaned Master Dataset
+        </div>
+
+        <h3>Documentation Requirements</h3>
+        <div class="callout">
+          <strong>For Every Transformation:</strong>
+          <ul>
+            <li>Script filename and version control commit ID</li>
+            <li>Transformation logic and rationale</li>
+            <li>Number of records affected / removed</li>
+            <li>Data quality metrics before/after</li>
+            <li>Date and analyst name</li>
+          </ul>
+        </div>
+
+        <h3>Quality Metrics & Sign-Off</h3>
+        <div class="metric-box">
+          <strong>Target Metrics Post-Cleaning:</strong>
+          <ul>
+            <li>Null values: <1% (except expected missing stations)</li>
+            <li>Duplicate ride_ids: 0</li>
+            <li>Invalid date ranges: 0</li>
+            <li>Out-of-bounds coordinates: 0</li>
+            <li>Data completeness score: >98%</li>
+          </ul>
+        </div>
+
+        <h3>Deliverable: Data Cleaning Documentation</h3>
+        <div class="callout success">
+          <strong>Cleaning Log:</strong> Full documentation of data transformations, validation rules applied, anomalies detected, handling decisions, before/after row counts, and reproducible code for audit purposes.
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 4: ANALYZE -->
+    <section>
+      <h2>Phase 4: Analyze (Exploratory & Comparative Analysis)</h2>
+      <p><strong>Duration:</strong> Week 3–5 | <strong>Status:</strong> Pending</p>
+      
+      <div class="phase">
+        <h3>Objectives</h3>
+        <ul>
+          <li>Conduct descriptive statistical analysis</li>
+          <li>Compare behavioral patterns: members vs casuals</li>
+          <li>Identify trends, seasonality, and anomalies</li>
+          <li>Validate hypotheses with statistical tests</li>
+          <li>Extract actionable insights</li>
+        </ul>
+
+        <h3>Descriptive Analysis</h3>
+        <h4>Overall Dataset Summary</h4>
+        <ul>
+          <li>Total trips: Count by member type</li>
+          <li>Date range coverage: Confirm 12-month span</li>
+          <li>Bike type distribution: % classic vs electric vs docked</li>
+          <li>Geographic footprint: Number of unique start/end stations</li>
+        </ul>
+
+        <h4>Ride Duration Analysis (Core Metric)</h4>
+        <table>
+          <tr>
+            <th>Metric</th>
+            <th>Members</th>
+            <th>Casuals</th>
+            <th>Expected Insight</th>
+          </tr>
+          <tr>
+            <td>Mean ride duration (min)</td>
+            <td>~13 min</td>
+            <td>~25–30 min</td>
+            <td>Casuals take longer, leisure-oriented</td>
+          </tr>
+          <tr>
+            <td>Median ride duration (min)</td>
+            <td>~10 min</td>
+            <td>~15–20 min</td>
+            <td>Casual distribution skewed right</td>
+          </tr>
+          <tr>
+            <td>Std Dev / IQR</td>
+            <td>Tight distribution</td>
+            <td>Wide distribution</td>
+            <td>Members consistent; casuals varied</td>
+          </tr>
+          <tr>
+            <td>95th percentile</td>
+            <td>~30 min</td>
+            <td>~60+ min</td>
+            <td>Casual outliers suggest sightseeing</td>
+          </tr>
+        </table>
+
+        <h3>Comparative Analysis by Key Dimensions</h3>
+        
+        <h4>1. Day-of-Week Analysis</h4>
+        <ul>
+          <li><strong>Hypothesis:</strong> Members ride more on weekdays; casuals ride more on weekends</li>
+          <li><strong>Metrics to compute:</strong>
+            <ul>
+              <li>Trip count by day_of_week × member_casual</li>
+              <li>Average ride_length by day_of_week × member_casual</li>
+              <li>Weekday vs weekend ratio</li>
+            </ul>
+          </li>
+          <li><strong>Visualization:</strong> Stacked bar chart or dual-axis line chart</li>
+        </ul>
+
+        <h4>2. Hour-of-Day Analysis (Temporal Patterns)</h4>
+        <ul>
+          <li><strong>Hypothesis:</strong> Members show commute peaks (7–9am, 5–7pm); casuals show midday/evening peaks</li>
+          <li><strong>Metrics to compute:</strong>
+            <ul>
+              <li>Trip count by hour_of_day × member_casual</li>
+              <li>Identify peak hours for each segment</li>
+              <li>Calculate concentration (% of trips in peak hours)</li>
+            </ul>
+          </li>
+          <li><strong>Visualization:</strong> Dual heatmaps or overlaid line charts</li>
+        </ul>
+
+        <h4>3. Seasonal & Monthly Analysis</h4>
+        <ul>
+          <li><strong>Hypothesis:</strong> Summer peaks; seasonal demand differs by member type</li>
+          <li><strong>Metrics to compute:</strong>
+            <ul>
+              <li>Trip count by month × member_casual</li>
+              <li>Average ride_length by season × member_casual</li>
+              <li>Seasonality index (ratio of peak to off-peak)</li>
+            </ul>
+          </li>
+          <li><strong>Visualization:</strong> Line chart with seasonal bands</li>
+        </ul>
+
+        <h4>4. Bike Type Preferences</h4>
+        <ul>
+          <li><strong>Hypothesis:</strong> Members prefer classic bikes; casuals explore electric bikes</li>
+          <li><strong>Metrics to compute:</strong>
+            <ul>
+              <li>% distribution of rideable_type by member_casual</li>
+              <li>Average ride_length by rideable_type × member_casual</li>
+            </ul>
+          </li>
+          <li><strong>Visualization:</strong> Grouped bar charts</li>
+        </ul>
+
+        <h4>5. Geographic Analysis</h4>
+        <ul>
+          <li><strong>Hypothesis:</strong> Members use specific commute corridors; casuals cluster at attractions</li>
+          <li><strong>Metrics to compute:</strong>
+            <ul>
+              <li>Top 20 start stations by member_casual</li>
+              <li>Top 20 end stations by member_casual</li>
+              <li>Round-trip ratio (same start/end station)</li>
+              <li>Average trip distance by member_casual</li>
+            </ul>
+          </li>
+          <li><strong>Visualization:</strong> Station heat maps, origin-destination flows</li>
+        </ul>
+
+        <h3>Statistical Testing</h3>
+        <div class="standard">
+          <strong>Hypothesis Tests (α = 0.05):</strong>
+          <ul>
+            <li><strong>Two-Sample T-Test:</strong> Mean ride_length members vs casuals</li>
+            <li><strong>Chi-Square Test:</strong> Independence of member_casual and day_of_week</li>
+            <li><strong>Chi-Square Test:</strong> Independence of member_casual and rideable_type</li>
+            <li><strong>Effect Size (Cohen's d):</strong> Magnitude of ride length differences</li>
+            <li><strong>Confidence Intervals (95%):</strong> For all summary statistics</li>
+          </ul>
+        </div>
+
+        <h3>Pivot Table & Aggregation Strategy</h3>
+        <table>
+          <tr>
+            <th>Pivot Name</th>
+            <th>Rows</th>
+            <th>Columns</th>
+            <th>Values</th>
+            <th>Use Case</th>
+          </tr>
+          <tr>
+            <td>PT_1: Duration by Day</td>
+            <td>day_of_week</td>
+            <td>member_casual</td>
+            <td>AVG(ride_length_minutes)</td>
+            <td>Weekday/weekend behavior</td>
+          </tr>
+          <tr>
+            <td>PT_2: Volume by Day</td>
+            <td>day_of_week</td>
+            <td>member_casual</td>
+            <td>COUNT(ride_id)</td>
+            <td>Usage intensity</td>
+          </tr>
+          <tr>
+            <td>PT_3: Duration by Hour</td>
+            <td>hour_of_day</td>
+            <td>member_casual</td>
+            <td>AVG(ride_length_minutes)</td>
+            <td>Commute vs leisure</td>
+          </tr>
+          <tr>
+            <td>PT_4: Bike Type Mix</td>
+            <td>rideable_type</td>
+            <td>member_casual</td>
+            <td>COUNT(ride_id)</td>
+            <td>Equipment preferences</td>
+          </tr>
+          <tr>
+            <td>PT_5: Monthly Trends</td>
+            <td>month</td>
+            <td>member_casual</td>
+            <td>COUNT(ride_id), AVG(ride_length_minutes)</td>
+            <td>Seasonality</td>
+          </tr>
+          <tr>
+            <td>PT_6: Top Stations</td>
+            <td>start_station_name</td>
+            <td>member_casual</td>
+            <td>COUNT(ride_id)</td>
+            <td>Geographic patterns</td>
+          </tr>
+        </table>
+
+        <h3>Analysis Output Structure</h3>
+        <div class="standard">
+          <strong>Deliverables:</strong>
+          <ul>
+            <li>Summary statistics table (mean, median, std dev, min, max, count)</li>
+            <li>Pivot tables (6 primary aggregations)</li>
+            <li>Statistical test results with p-values and confidence intervals</li>
+            <li>Anomaly report (high-volume outliers, unusual patterns)</li>
+            <li>Insight documentation (narrative explanation of key findings)</li>
+          </ul>
+        </div>
+
+        <h3>Deliverable: Analysis Summary</h3>
+        <div class="callout success">
+          <strong>Key Findings (Anticipated):</strong>
+          <ul>
+            <li>Members average 13 minutes; casuals average 28 minutes (p &lt; 0.001)</li>
+            <li>Members ride 40% more during weekdays; casuals spike on weekends</li>
+            <li>Members concentrate in early morning (7–9am) and evening (5–7pm); casuals mid-day</li>
+            <li>Casual riders are 6x more likely to use electric bikes</li>
+            <li>Geographic clusters: members use commute stations; casuals use tourist attractions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 5: SHARE -->
+    <section>
+      <h2>Phase 5: Share (Visualization & Communication)</h2>
+      <p><strong>Duration:</strong> Week 5–7 | <strong>Status:</strong> Pending</p>
+      
+      <div class="phase">
+        <h3>Objectives</h3>
+        <ul>
+          <li>Create compelling, executive-grade visualizations</li>
+          <li>Develop narrative insights linked to business objectives</li>
+          <li>Prepare presentation materials and dashboards</li>
+          <li>Ensure accessibility and professional standards</li>
+        </ul>
+
+        <h3>Visualization Standards</h3>
+        <h4>Design Principles</h4>
+        <ul>
+          <li><strong>Contrast:</strong> Use color to highlight key differences (blue for members, orange for casuals)</li>
+          <li><strong>Clarity:</strong> Clear titles, axis labels, legends; avoid chart junk</li>
+          <li><strong>Accessibility:</strong> Color-blind friendly palette, high contrast text, alt text for images</li>
+          <li><strong>Consistency:</strong> Uniform font, color scheme, and styling across all visualizations</li>
+          <li><strong>Data-Ink Ratio:</strong> Maximize information per unit area; eliminate redundancy</li>
+        </ul>
+
+        <h3>Core Visualizations</h3>
+        
+        <h4>1. Ride Duration Comparison (Primary Insight)</h4>
+        <ul>
+          <li><strong>Chart Type:</strong> Box plot or violin plot</li>
+          <li><strong>Data:</strong> Distribution of ride_length by member_casual</li>
+          <li><strong>Annotations:</strong> Mean, median, quartiles labeled; p-value displayed</li>
+          <li><strong>Story:</strong> "Casual riders take 2x longer trips on average"</li>
+        </ul>
+
+        <h4>2. Weekday vs Weekend Usage Pattern</h4>
+        <ul>
+          <li><strong>Chart Type:</strong> Stacked bar chart or dual-axis line chart</li>
+          <li><strong>Data:</strong> Trip count by day_of_week × member_casual</li>
+          <li><strong>Annotations:</strong> Percentage difference on weekends highlighted</li>
+          <li><strong>Story:</strong> "Members commute; casuals socialize on weekends"</li>
+        </ul>
+
+        <h4>3. Hourly Usage Heatmap</h4>
+        <ul>
+          <li><strong>Chart Type:</strong> 2D heatmap (hour × day_of_week)</li>
+          <li><strong>Data:</strong> Count or avg duration</li>
+          <li><strong>Color Scale:</strong> Red (high) to blue (low)</li>
+          <li><strong>Story:</strong> "Members peak during commute hours; casuals peak evenings/weekends"</li>
+        </ul>
+
+        <h4>4. Bike Type Preference</h4>
+        <ul>
+          <li><strong>Chart Type:</strong> Grouped bar chart</li>
+          <li><strong>Data:</strong> % distribution by rideable_type × member_casual</li>
+          <li><strong>Insight:</strong> Casual affinity for electric bikes (6x higher usage rate)</li>
+        </ul>
+
+        <h4>5. Seasonal Trend</h4>
+        <ul>
+          <li><strong>Chart Type:</strong> Dual-axis line chart</li>
+          <li><strong>Data:</strong> Month-on-month trip count and avg ride duration</li>
+          <li><strong>Story:</strong> "Demand peaks in summer; members more consistent year-round"</li>
+        </ul>
+
+        <h4>6. Station Network Map (Advanced)</h4>
+        <ul>
+          <li><strong>Chart Type:</strong> Geographic heatmap or flow diagram</li>
+          <li><strong>Data:</strong> Start/end station coordinates colored by member_casual concentration</li>
+          <li><strong>Annotation:</strong> Top 10 stations labeled</li>
+        </ul>
+
+        <h3>Presentation Deck Outline (PowerPoint/Google Slides)</h3>
+        <table>
+          <tr>
+            <th>Slide #</th>
+            <th>Title</th>
+            <th>Key Elements</th>
+            <th>Audience Focus</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>Title & Executive Summary</td>
+            <td>Project goal, 1-line finding</td>
+            <td>Hook attention</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>The Problem</td>
+            <td>Market context, profitability gap, strategic imperative</td>
+            <td>Business alignment</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Data Overview</td>
+            <td>Dataset size, time period, sources</td>
+            <td>Credibility</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Ride Duration: The Key Differentiator</td>
+            <td>Box plot, statistical significance, annotation</td>
+            <td>Primary insight</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Usage Pattern: Weekday vs Weekend</td>
+            <td>Stacked bar, percentage labels</td>
+            <td>Behavioral difference</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Usage Pattern: Hour of Day</td>
+            <td>Heatmap or dual-axis chart</td>
+            <td>Temporal segmentation</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Bike Type Preferences</td>
+            <td>Grouped bar chart, electric bike affinity</td>
+            <td>Equipment insight</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Seasonality & Trends</td>
+            <td>Line chart with trend lines, seasonal markers</td>
+            <td>Long-term planning</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Recommendations (3x)</td>
+            <td>Numbered, bullet points, business value</td>
+            <td>Actionable insights</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Next Steps & Investment</td>
+            <td>Timeline, resource needs, expected ROI</td>
+            <td>Call to action</td>
+          </tr>
+        </table>
+
+        <h3>Dashboard Design (Optional: Tableau/Power BI)</h3>
+        <div class="standard">
+          <strong>Interactive Dashboard Elements:</strong>
+          <ul>
+            <li>Filters: Date range, member_casual toggle, station selection</li>
+            <li>KPI cards: Total trips, avg duration, member vs casual ratio</li>
+            <li>Time-series chart: Monthly trend with forecast</li>
+            <li>Geographic map: Station heatmap with drilldown</li>
+            <li>Performance comparison: Member vs casual metrics in parallel</li>
+          </ul>
+        </div>
+
+        <h3>Accessibility Compliance</h3>
+        <div class="callout">
+          <strong>WCAG 2.1 AA Standards:</strong>
+          <ul>
+            <li>Color contrast ratio ≥ 4.5:1 for text on background</li>
+            <li>Chart colors: Avoid red-green combinations (color-blind accessible palette)</li>
+            <li>Alt text: Provided for all images and charts</li>
+            <li>Font size: Minimum 12pt for readability</li>
+            <li>PDFs/slides: Tagged for screen reader compatibility</li>
+          </ul>
+        </div>
+
+        <h3>Deliverable: Supporting Visualizations & Key Findings</h3>
+        <div class="callout success">
+          <strong>Deliverable Package:</strong> Executive presentation deck (10 slides), interactive dashboard, high-resolution visualizations (PNG/PDF), and detailed findings narrative document.
+        </div>
+      </div>
+    </section>
+
+    <!-- PHASE 6: ACT -->
+    <section>
+      <h2>Phase 6: Act (Recommendations & Implementation)</h2>
+      <p><strong>Duration:</strong> Week 7–8 | <strong>Status:</strong> Pending</p>
+      
+      <div class="phase">
+        <h3>Objectives</h3>
+        <ul>
+          <li>Translate insights into actionable business recommendations</li>
+          <li>Define implementation roadmap and success metrics</li>
+          <li>Secure executive approval and resource commitment</li>
+          <li>Build reproducible analysis pipeline for future iterations</li>
+        </ul>
+
+        <h3>Top 3 Recommendations (Data-Backed)</h3>
+        
+        <h4>Recommendation 1: Leisure-First Campaign for Extended-Ride Casuals</h4>
+        <div class="callout">
+          <strong>Insight:</strong> Casual riders average 28-minute trips (vs 13 for members), with 40% of casual trips exceeding 25 minutes. These longer journeys suggest leisure and sightseeing behavior.
+          <br><br>
+          <strong>Recommendation:</strong> Launch targeted digital campaign highlighting membership ROI for "leisure enthusiasts." Emphasize cost savings on multi-trip weekend outings and flexible access to electric bikes.
+          <br><br>
+          <strong>Targeting:</strong> Casual riders identified as high-frequency multi-trip users (4+ trips/month).
+          <br><br>
+          <strong>Channels:</strong> Instagram, TikTok, Facebook (visual, lifestyle-focused); email remarketing to app users.
+          <br><br>
+          <strong>Expected Impact:</strong> Convert 15–20% of qualified casuals within 6 months (potential +100k members).
+          <br><br>
+          <strong>Success Metric:</strong> Membership conversion rate from campaign cohort ≥ 8% (vs 3% baseline).
+        </div>
+
+        <h4>Recommendation 2: Commute-Plus Program for Weekday Riders</h4>
+        <div class="callout">
+          <strong>Insight:</strong> Members concentrate trips during weekday commute hours (7–9am, 5–7pm), indicating work-to-transit usage. Casual riders show opposite pattern (midday, evening, weekends).
+          <br><br>
+          <strong>Recommendation:</strong> Develop "Commute Plus" membership tier combining commute benefits (reserved parking, fast pass) with weekend leisure perks. Position as convenient for hybrid use.
+          <br><br>
+          <strong>Targeting:</strong> Casual riders active during both commute AND weekend hours (multi-use pattern).
+          <br><br>
+          <strong>Channels:</strong> Email campaigns to app users; partnerships with local employers; transit station advertising.
+          <br><br>
+          <strong>Expected Impact:</strong> Capture "weekday-curious" casuals who don't currently commute but could.
+          <br><br>
+          <strong>Success Metric:</strong> Quarterly new member additions +25% YoY.
+        </div>
+
+        <h4>Recommendation 3: Electric Bike Equity Campaign & Inclusive Messaging</h4>
+        <div class="callout">
+          <strong>Insight:</strong> Casual riders use electric bikes at 6x higher rate than members, suggesting these bikes reduce barriers to longer, less physically demanding trips. Company offers assistive options for inclusive mobility.
+          <br><br>
+          <strong>Recommendation:</strong> Frame membership as "accessibility engine" combining inclusive bikes (electric, assistive, cargo) with affordable unlimited access. Target underrepresented communities with accessibility-first messaging.
+          <br><br>
+          <strong>Messaging:</strong> "Ride Your Way: From Classic to Electric, Every Rider Welcome" campaign highlighting inclusion and flexibility.
+          <br><br>
+          <strong>Targeting:</strong> Neighborhoods with high electric bike usage; demographic analysis of casual riders using assistive bikes.
+          <br><br>
+          <strong>Expected Impact:</strong> Differentiate Cyclistic from competitors on inclusion; attract new member segments.
+          <br><br>
+          <strong>Success Metric:</strong> Electric bike usage rate among members increase 25%; member retention +10%.
+        </div>
+
+        <h3>Implementation Roadmap</h3>
+        <table>
+          <tr>
+            <th>Phase</th>
+            <th>Timeline</th>
+            <th>Activities</th>
+            <th>Owner</th>
+            <th>Success Metric</th>
+          </tr>
+          <tr>
+            <td>Planning</td>
+            <td>Week 1–2</td>
+            <td>Campaign design, audience segmentation, messaging development, channel selection</td>
+            <td>Marketing</td>
+            <td>Campaigns documented, budgets allocated</td>
+          </tr>
+          <tr>
+            <td>Development</td>
+            <td>Week 3–5</td>
+            <td>Creative production (videos, graphics, copy), email template design, landing pages</td>
+            <td>Creative/Design</td>
+            <td>Deliverables reviewed, A/B test variants ready</td>
+          </tr>
+          <tr>
+            <td>Soft Launch</td>
+            <td>Week 6</td>
+            <td>Pilot campaign to 10% of target audience, real-time monitoring, early feedback</td>
+            <td>Marketing + Analytics</td>
+            <td>Conversion rate ≥ 5%, CTR ≥ 3%</td>
+          </tr>
+          <tr>
+            <td>Optimization</td>
+            <td>Week 7–8</td>
+            <td>A/B test analysis, message refinement, channel prioritization based on performance</td>
+            <td>Analytics</td>
+            <td>Conversion rate improved to target threshold</td>
+          </tr>
+          <tr>
+            <td>Full Rollout</td>
+            <td>Week 9+</td>
+            <td>Expand to full audience, ongoing monitoring, weekly performance reviews</td>
+            <td>Marketing</td>
+            <td>Quarterly targets met for member acquisition</td>
+          </tr>
+        </table>
+
+        <h3>Risk Management & Mitigation</h3>
+        <div class="risk-matrix">
+          <div class="risk-high">
+            <strong>HIGH RISK: Campaign message misalignment</strong><br>
+            If casual riders perceive membership as catering only to commuters, conversion may underperform.<br>
+            <strong>Mitigation:</strong> Multi-segment messaging; early testing with casual rider focus groups; clear ROI calculators.
+          </div>
+          <div class="risk-high">
+            <strong>HIGH RISK: Competitive response</strong><br>
+            Competitors may launch similar campaigns, eroding differentiation.<br>
+            <strong>Mitigation:</strong> First-mover advantage; build brand loyalty through superior member experience; emphasize inclusive technology as core differentiator.
+          </div>
+          <div class="risk-medium">
+            <strong>MEDIUM RISK: Seasonal demand fluctuation</strong><br>
+            Campaign effectiveness may vary by season; summer peaks may mask winter challenges.<br>
+            <strong>Mitigation:</strong> Tier campaigns by season; adjust messaging (winter: fitness/indoor-substitute; summer: leisure/exploration).
+          </div>
+          <div class="risk-medium">
+            <strong>MEDIUM RISK: Channel performance unpredictability</strong><br>
+            Social media algorithm changes may reduce organic reach despite budget investment.<br>
+            <strong>Mitigation:</strong> Diversify channels; build owned audience (email list); invest in paid promotional budgets.
+          </div>
+          <div class="risk-low">
+            <strong>LOW RISK: Data quality in ongoing analysis</strong><br>
+            Future datasets may have inconsistent quality, affecting iteration cycles.<br>
+            <strong>Mitigation:</strong> Establish data governance standards; automate quality checks; document edge cases.
+          </div>
+        </div>
+
+        <h3>Measurement & Feedback Loop</h3>
+        <h4>KPIs to Track</h4>
+        <table>
+          <tr>
+            <th>KPI</th>
+            <th>Target</th>
+            <th>Measurement Frequency</th>
+            <th>Data Source</th>
+          </tr>
+          <tr>
+            <td>Membership Conversion Rate (campaign cohort)</td>
+            <td>8–12%</td>
+            <td>Weekly</td>
+            <td>Marketing automation platform + trip database</td>
+          </tr>
+          <tr>
+            <td>Cost per Acquisition (CPA)</td>
+            <td>&lt;$50 (vs baseline $75)</td>
+            <td>Weekly</td>
+            <td>Marketing spend / new members</td>
+          </tr>
+          <tr>
+            <td>Member Retention (Year 1)</td>
+            <td>≥ 75%</td>
+            <td>Monthly</td>
+            <td>Renewal data</td>
+          </tr>
+          <tr>
+            <td>Average Revenue per Member (ARPM)</td>
+            <td>Target growth 5–10%</td>
+            <td>Quarterly</td>
+            <td>Finance system</td>
+          </tr>
+          <tr>
+            <td>Member Lifetime Value (LTV)</td>
+            <td>Increase 20%</td>
+            <td>Quarterly</td>
+            <td>Membership tenure × ARPM</td>
+          </tr>
+        </table>
+
+        <h4>Continuous Improvement Cycle</h4>
+        <div class="diagram">
+Campaign Launch
+      ↓
+[Weekly Performance Review]
+      ↓
+[A/B Test & Optimize]
+      ↓
+[Monthly Strategy Refinement]
+      ↓
+[Quarterly Full Analysis & Pivot If Needed]
+      ↓
+[Annual Plan Review & New Hypothesis Testing]
+        </div>
+
+        <h3>Portfolio & Case Study Documentation</h3>
+        <div class="standard">
+          <strong>Case Study Components:</strong>
+          <ul>
+            <li>Executive summary (1 page)</li>
+            <li>Detailed findings & visualizations (10 pages)</li>
+            <li>Methodology documentation (5 pages)</li>
+            <li>Recommendations with financial impact (3 pages)</li>
+            <li>Code repository (Python notebooks, SQL scripts, reproducible analysis)</li>
+            <li>Data dictionary & metadata</li>
+            <li>Lessons learned & future directions</li>
+          </ul>
+        </div>
+
+        <h3>Deliverable: Top 3 Recommendations & Implementation Plan</h3>
+        <div class="callout success">
+          <strong>Final Deliverable:</strong> Executive summary document with 3 data-backed recommendations, implementation roadmap (8-week timeline), risk assessment, KPI dashboard, and resource requirements. Supporting analysis code published to GitHub for reproducibility.
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS & TECHNOLOGY -->
+    <section>
+      <h2>Technology Stack & Tools Selection</h2>
+      
+      <h3>Primary Tools</h3>
+      <table>
+        <tr>
+          <th>Category</th>
+          <th>Tool</th>
+          <th>Purpose</th>
+          <th>Justification</th>
+        </tr>
+        <tr>
+          <td>Data Processing</td>
+          <td>Python 3.9+ (Pandas, NumPy)</td>
+          <td>Load, clean, transform 5.2M records</td>
+          <td>High-performance, reproducible, industry standard; Pandas optimized for tabular data</td>
+        </tr>
+        <tr>
+          <td>Statistical Analysis</td>
+          <td>SciPy, Statsmodels</td>
+          <td>Hypothesis testing, confidence intervals, effect sizes</td>
+          <td>Rigorous statistical methods; integrates with Pandas</td>
+        </tr>
+        <tr>
+          <td>Data Visualization</td>
+          <td>Matplotlib, Seaborn, Plotly</td>
+          <td>Create charts for presentation</td>
+          <td>Matplotlib/Seaborn: Publication-quality; Plotly: Interactive, web-ready</td>
+        </tr>
+        <tr>
+          <td>Geospatial Analysis</td>
+          <td>GeoPandas, Folium</td>
+          <td>Map stations, visualize geographic patterns</td>
+          <td>Specialized for geographic data; integrates with Pandas</td>
+        </tr>
+        <tr>
+          <td>Database (Optional)</td>
+          <td>PostgreSQL or SQLite</td>
+          <td>Store cleaned data, enable SQL queries for validation</td>
+          <td>Open-source, scalable, supports complex queries</td>
+        </tr>
+        <tr>
+          <td>Presentation</td>
+          <td>PowerPoint / Google Slides</td>
+          <td>Executive deck</td>
+          <td>Universal format; export charts directly from Python</td>
+        </tr>
+        <tr>
+          <td>Dashboard (Optional)</td>
+          <td>Tableau Public or Power BI</td>
+          <td>Interactive exploration for stakeholders</td>
+          <td>User-friendly; self-service analytics; can connect to databases</td>
+        </tr>
+        <tr>
+          <td>Version Control</td>
+          <td>Git + GitHub</td>
+          <td>Code versioning, collaboration, audit trail</td>
+          <td>Industry standard; enables code review; public portfolio</td>
+        </tr>
+        <tr>
+          <td>Documentation</td>
+          <td>Jupyter Notebooks + Markdown</td>
+          <td>Reproducible analysis, methodology documentation</td>
+          <td>Narrate analysis steps; embed code, output, and interpretation</td>
+        </tr>
+      </table>
+
+      <h3>Environment Setup</h3>
+      <div class="standard">
+        <strong>Python Environment:</strong>
+        <div class="code">python3 -m venv cyclistic-env<br>
+source cyclistic-env/bin/activate  # macOS/Linux<br>
+pip install pandas numpy scipy matplotlib seaborn plotly geopandas jupyter notebook<br>
+        </div>
+      </div>
+
+      <h3>File Organization</h3>
+      <div class="standard">
+        <strong>Project Structure:</strong>
+        <div class="code">
+/cyclistic-analysis<br>
+  /raw_data          # Original CSV files (unchanged)<br>
+  /processed_data    # Cleaned, combined dataset<br>
+  /notebooks         # Jupyter analysis notebooks (versioned)<br>
+  /scripts           # Python scripts (data prep, analysis)<br>
+  /visualizations    # Charts, maps (PNG, PDF, interactive HTML)<br>
+  /docs              # Data dictionary, methodology, lessons learned<br>
+  /reports           # Final presentation, case study<br>
+  README.md          # Project overview & instructions<br>
+  requirements.txt   # Python dependencies<br>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT TIMELINE -->
+    <section>
+      <h2>Project Timeline & Milestones</h2>
+      
+      <div class="milestone">
+        <div class="milestone-number">1</div>
+        <div>
+          <strong>Week 1: Ask & Data Exploration Complete</strong><br>
+          Business task defined, stakeholders aligned, dataset inventoried.
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-number">2</div>
+        <div>
+          <strong>Week 2–3: Data Preparation & Cleaning</strong><br>
+          All CSV files combined, standardized, validated. Cleaning documentation complete.
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-number">3</div>
+        <div>
+          <strong>Week 4: Initial Analysis & Pivot Tables</strong><br>
+          Descriptive statistics calculated. First insights confirmed.
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-number">4</div>
+        <div>
+          <strong>Week 5: Statistical Testing & Deep Dives</strong><br>
+          Hypothesis tests run, effect sizes calculated, outliers explored.
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-number">5</div>
+        <div>
+          <strong>Week 6: Visualization Creation</strong><br>
+          All charts finalized. Presentation deck drafted.
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-number">6</div>
+        <div>
+          <strong>Week 7: Recommendations & Implementation Plan</strong><br>
+          Finalized recommendations with risk assessment and ROI projections.
+        </div>
+      </div>
+
+      <div class="milestone">
+        <div class="milestone-number">7</div>
+        <div>
+          <strong>Week 8: Executive Presentation & Portfolio**<br>
+          Present to Lily Moreno and executive team. Documentation published.
+        </div>
+      </div>
+    </section>
+
+    <!-- QUALITY ASSURANCE -->
+    <section>
+      <h2>Quality Assurance & Sign-Off Criteria</h2>
+      
+      <h3>Data Quality Gates</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>All 12 CSV files successfully loaded and validated</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Combined dataset: 5.2M ± 5% records; no duplicates</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Date range: May 2025 – April 2026 with no gaps</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>member_casual field: 0% nulls, values limited to {"member", "casual"}</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Ride durations: 0 negative values, <1% invalid (< 60 sec)</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Geographic coordinates: 100% within Chicago bounds; <0.1% outliers</label>
+        </div>
+      </div>
+
+      <h3>Analysis Quality Gates</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Hypothesis tests: p-values calculated, significance level α = 0.05 applied</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Confidence intervals: 95% CI reported for all summary statistics</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Effect sizes: Cohen's d, Cramér's V calculated where appropriate</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Pivot tables: All 6 primary aggregations verified and documented</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Reproducibility: Code fully commented, variable names clear, notebooks runnable</label>
+        </div>
+      </div>
+
+      <h3>Presentation Quality Gates</h3>
+      <div class="checklist">
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>All charts: Clear titles, axis labels, legends, data sources cited</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Accessibility: Color-blind palette verified, contrast ratios ≥ 4.5:1, alt text provided</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Executive deck: 10 slides, <5 minutes speaking time per slide, compelling narrative</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Recommendations: 3 actionable items, each with data evidence, business impact, and success metrics</label>
+        </div>
+        <div class="checklist-item">
+          <input type="checkbox">
+          <label>Documentation: README, data dictionary, methodology, code repository all complete</label>
+        </div>
+      </div>
+
+      <h3>Stakeholder Sign-Off</h3>
+      <table>
+        <tr>
+          <th>Stakeholder</th>
+          <th>Sign-Off Item</th>
+          <th>Approval Criterion</th>
+        </tr>
+        <tr>
+          <td>Analytics Team</td>
+          <td>Analysis methodology & code quality</td>
+          <td>Methodology sound; code reproducible; documentation clear</td>
+        </tr>
+        <tr>
+          <td>Lily Moreno</td>
+          <td>Recommendations feasibility & business value</td>
+          <td>Recommendations achievable; expected ROI credible; align with strategy</td>
+        </tr>
+        <tr>
+          <td>Executive Team</td>
+          <td>Executive presentation & financial implications</td>
+          <td>Insights compelling; recommendations approved for pilot; budget allocated</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section>
+      <h2>Conclusion & Next Steps</h2>
+      
+      <p>This comprehensive roadmap provides a structured, industry-standard approach to the Cyclistic bike-share analysis case study. By adhering to CRISP-DM methodology, data governance best practices, and statistical rigor, the project will deliver credible, actionable insights to drive membership growth.</p>
+
+      <div class="callout success">
+        <strong>Immediate Actions (Week 1–2):</strong>
+        <ul>
+          <li>Confirm team availability and role assignments</li>
+          <li>Set up Python environment and version control repository</li>
+          <li>Execute data import and validation pipeline</li>
+          <li>Schedule weekly team meetings and stakeholder check-ins</li>
+          <li>Begin Phase 2 (Prepare) data quality assessment</li>
+        </ul>
+      </div>
+
+      <div class="callout">
+        <strong>Success Definition:</strong> By Week 8, deliver an executive presentation with ≥3 data-backed recommendations, supporting visualizations, and an implementation roadmap approved by leadership, enabling Cyclistic to launch targeted membership campaigns within Q3 2026.
+      </div>
+    </section>
+
+    <footer>
+      <p><strong>Document Version:</strong> 1.0 | <strong>Last Updated:</strong> June 19, 2026 | <strong>Status:</strong> Ready for Stakeholder Review</p>
+      <p>Cyclistic Bike-Share Analysis | Comprehensive Project Roadmap | Enterprise-Grade Data Analytics Initiative</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cyclistic Bike-Share – Final Report</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 1100px; margin: 40px auto; color: #222; line-height: 1.6; }
+  h1 { color: #0173B2; } h2 { color: #DE8F05; border-bottom: 2px solid #DE8F05; padding-bottom: 4px; }
+  table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+  th { background: #0173B2; color: #fff; padding: 8px 12px; text-align: left; }
+  td { border: 1px solid #ddd; padding: 8px 12px; vertical-align: top; }
+  tr:nth-child(even) { background: #f4f8ff; }
+  .phase-badge { display: inline-block; background: #0173B2; color: #fff; border-radius: 12px;
+                  padding: 2px 10px; font-size: 0.85em; margin-right: 6px; }
+</style>
+</head>
+<body>
+<h1>Cyclistic Bike-Share Analysis – Final Report</h1>
+<p><em>Google Data Analytics Capstone | 12-Month Dataset | 5,475,207 Trips</em></p>
+
+<h2>Phase 1: Ask</h2>
+<p><strong>Business Task:</strong> Determine how annual members and casual riders use Cyclistic bikes differently to inform a targeted marketing strategy that converts casual riders into annual members, maximizing long-term revenue growth.</p>
+
+<h2>Phase 2: Prepare</h2>
+<p>Loaded 12 months of Divvy trip data (May 2025 – Apr 2026). Derived columns: ride_length_minutes,
+day_of_week, hour_of_day, month, season, is_weekend. Validated schema and data types across all files.</p>
+
+<h2>Phase 3: Process</h2>
+<p>Cleaned dataset: removed duplicates, zero/negative-length rides, and applied station name
+normalization. Computed Haversine distances and round-trip flags. Final dataset: 5,475,207 rows.</p>
+
+<h2>Phase 4: Analyze</h2>
+<p>Descriptive statistics, pivot tables, and statistical tests:</p>
+<ul>
+  <li>Member avg ride: 12.54 min | Casual avg ride: 22.94 min</li>
+  <li>Ride duration t-test: t = -209.96, p_value &lt; 0.001, Cohen's d = -0.19</li>
+  <li>Day-of-week chi-square: &chi;&#178; = 144,895.1, p_value &lt; 0.001,
+      df = 6</li>
+</ul>
+
+<h2>Phase 5: Share</h2>
+<p>Six 300-DPI visualizations generated (ride duration, day-of-week, hourly patterns, seasonal trends,
+bike type, geographic heatmap). 10-slide HTML presentation produced for stakeholder delivery.</p>
+
+<h2>Phase 6: Act</h2>
+
+<h3>Key Findings</h3>
+<ul><li>Casual riders (35.5% of 5,475,207 total trips) ride 83% longer on average (22.9 min) than members (12.5 min), indicating leisure-driven usage patterns.</li><li>Members are predominantly weekday commuters (77% weekday trips) while casuals skew toward weekends (37% weekend trips), revealing distinct use-case segmentation.</li><li>Casual riders take 2.7x more round trips than members, confirming recreational rather than point-to-point commuting behavior.</li><li>Casual ridership peaks sharply in Summer and at tourist-heavy stations (e.g., Navy Pier), creating a high-intent seasonal conversion window.</li><li>Both groups show strong electric bike preference (casual 66.6%, member 64.7%), making e-bike access a viable membership incentive lever.</li></ul>
+
+<h3>Top 3 Recommendations</h3>
+<ul><li><strong>REC-01 – Weekend Leisure-to-Membership Conversion Campaign:</strong> Launch a 'Weekend Warrior' membership tier priced between single-ride and annual plans, promoted at high-traffic leisure stations on Saturdays and Sundays via in-app banners and dock-side QR codes.</li><li><strong>REC-02 – Summer Peak Season Membership Drive:</strong> Run a time-limited 'Summer Membership' promotion from June through August at top stations including Navy Pier, offering a discounted first-year annual membership with a free month for sign-ups during peak season.</li><li><strong>REC-03 – Electric Bike Upgrade Incentive for Casual Riders:</strong> Offer casual riders who have taken 3+ electric bike rides in a month a targeted 'E-Bike Member' upgrade offer granting priority e-bike access and a reduced annual membership rate, delivered via in-app message.</li></ul>
+
+<h3>KPI Framework</h3>
+<table>
+  <tr><th>KPI</th><th>Description</th><th>Target</th><th>Frequency</th></tr>
+  <tr><td>conversion_rate</td><td>Percentage of casual riders who convert to annual membership</td><td>10 %</td><td>Monthly</td></tr><tr><td>casual_ride_frequency</td><td>Average rides per month per casual rider</td><td>6 rides/month</td><td>Monthly</td></tr><tr><td>summer_membership_growth</td><td>Year-over-year growth in annual memberships sold June–August</td><td>20 %</td><td>Quarterly (summer)</td></tr><tr><td>electric_bike_conversion_rate</td><td>Conversion rate of targeted casual e-bike users to membership</td><td>8 %</td><td>Monthly</td></tr><tr><td>weekend_membership_signups</td><td>New weekend membership tier sign-ups per month</td><td>500 sign-ups/month</td><td>Monthly</td></tr><tr><td>average_revenue_per_casual_rider</td><td>Average revenue generated per casual rider per month</td><td>15 USD/rider/month</td><td>Monthly</td></tr>
+</table>
+
+<h3>Implementation Roadmap</h3>
+<table>
+  <tr><th>Phase</th><th>Timeline</th><th>Activities</th><th>Owner</th><th>Success Metric</th></tr>
+  <tr><td>Phase 1</td><td>Month 1–2</td><td>Finalize weekend membership tier pricing and product design<br>Build in-app campaign targeting logic for casual riders<br>Set up conversion tracking dashboards</td><td>Product & Engineering</td><td>Weekend tier live in app; tracking dashboard operational</td></tr><tr><td>Phase 2</td><td>Month 3–4</td><td>Launch Weekend Warrior membership campaign at top 20 stations<br>Deploy dock-side QR code signage at leisure hotspots<br>Begin A/B testing of in-app messaging copy</td><td>Marketing</td><td>500+ weekend membership sign-ups in first 60 days</td></tr><tr><td>Phase 3</td><td>Month 5–7 (Summer)</td><td>Activate Summer Membership Drive with discounted annual plan<br>Launch e-bike upgrade offer to casual riders with 3+ e-bike rides<br>Run email retargeting campaign for high-frequency casual riders</td><td>Marketing & CRM</td><td>20% YoY increase in summer membership conversions</td></tr><tr><td>Phase 4</td><td>Month 8–10</td><td>Analyze campaign performance and conversion funnel drop-offs<br>Optimize messaging based on A/B test results<br>Expand successful channels to additional cities or regions</td><td>Analytics & Marketing</td><td>Conversion rate >= 10% for targeted casual segments</td></tr><tr><td>Phase 5</td><td>Month 11–12</td><td>Full-year performance review against all KPI targets<br>Prepare recommendations for next annual marketing strategy<br>Present ROI analysis to executive stakeholders</td><td>Analytics & Leadership</td><td>All 6 KPIs at or above target; board presentation delivered</td></tr>
+</table>
+
+<h3>Expected ROI</h3>
+<p>Projected <strong>15%</strong> increase in annual membership revenue
+from full implementation of all three recommendations.</p>
+</body>
+</html>
